@@ -1,0 +1,40 @@
+PODS:
+  - Realm (2.10.2):
+    - Realm/Headers (= 2.10.2)
+  - Realm/Headers (2.10.2)
+  - RealmSwift (2.10.2):
+    - Realm (= 2.10.2)
+  - RxCocoa (4.0.0-rc.0):
+    - RxSwift (~> 4.0.0-rc.0)
+  - RxSwift (4.0.0-rc.0)
+
+DEPENDENCIES:
+  - RealmSwift
+  - RxCocoa (from `https://github.com/ReactiveX/RxSwift.git`, branch `rxswift4.0-swift4.0`)
+  - RxSwift (from `https://github.com/ReactiveX/RxSwift.git`, branch `rxswift4.0-swift4.0`)
+
+EXTERNAL SOURCES:
+  RxCocoa:
+    :branch: rxswift4.0-swift4.0
+    :git: https://github.com/ReactiveX/RxSwift.git
+  RxSwift:
+    :branch: rxswift4.0-swift4.0
+    :git: https://github.com/ReactiveX/RxSwift.git
+
+CHECKOUT OPTIONS:
+  RxCocoa:
+    :commit: 61261f2ee97ace3e08713921dd9406669b9debee
+    :git: https://github.com/ReactiveX/RxSwift.git
+  RxSwift:
+    :commit: 61261f2ee97ace3e08713921dd9406669b9debee
+    :git: https://github.com/ReactiveX/RxSwift.git
+
+SPEC CHECKSUMS:
+  Realm: 0ef72b837fb67e9f4b098bac771ddd72c7fdbb69
+  RealmSwift: 07a9ae0505091eda6b2ee7c190c3786d6e90a7b0
+  RxCocoa: 58841348f4c6e6f6cd244522c16a6b7df5008956
+  RxSwift: f0ff3c78e1f71a7d3506defde0b79c72fe39bac3
+
+PODFILE CHECKSUM: 9ea8830178aa3d8dc323faeeb056fd42e80278eb
+
+COCOAPODS: 1.2.1
