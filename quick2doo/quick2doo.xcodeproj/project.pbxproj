@@ -14,6 +14,7 @@
 		DCD438A91F8B784400C4D4A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCD438A81F8B784400C4D4A8 /* Assets.xcassets */; };
 		DCD438AC1F8B784400C4D4A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCD438AA1F8B784400C4D4A8 /* LaunchScreen.storyboard */; };
 		DCD438B51F8B811200C4D4A8 /* NibIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD438B41F8B811200C4D4A8 /* NibIdentifiable.swift */; };
+		DCD438B71F8B81F000C4D4A8 /* BindableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD438B61F8B81F000C4D4A8 /* BindableType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		DCD438AB1F8B784400C4D4A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DCD438AD1F8B784400C4D4A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCD438B41F8B811200C4D4A8 /* NibIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibIdentifiable.swift; sourceTree = "<group>"; };
+		DCD438B61F8B81F000C4D4A8 /* BindableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindableType.swift; sourceTree = "<group>"; };
 		E02DD92121AE7FC83B56AAA7 /* Pods_quick2doo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_quick2doo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -95,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				DCD438B41F8B811200C4D4A8 /* NibIdentifiable.swift */,
+				DCD438B61F8B81F000C4D4A8 /* BindableType.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCD438B71F8B81F000C4D4A8 /* BindableType.swift in Sources */,
 				DCD438B51F8B811200C4D4A8 /* NibIdentifiable.swift in Sources */,
 				DCD438A41F8B784400C4D4A8 /* ViewController.swift in Sources */,
 				DCD438A21F8B784400C4D4A8 /* AppDelegate.swift in Sources */,
