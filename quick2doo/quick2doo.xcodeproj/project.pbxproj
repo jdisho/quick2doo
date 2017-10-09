@@ -23,6 +23,7 @@
 		DCD438C61F8B8F1900C4D4A8 /* TaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD438C51F8B8F1800C4D4A8 /* TaskItem.swift */; };
 		DCD438C91F8B913800C4D4A8 /* TaskService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD438C81F8B913800C4D4A8 /* TaskService.swift */; };
 		DCD438CC1F8B915600C4D4A8 /* TaskServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD438CB1F8B915600C4D4A8 /* TaskServiceType.swift */; };
+		DCD438CF1F8B94E800C4D4A8 /* RealmProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD438CE1F8B94E800C4D4A8 /* RealmProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		DCD438C51F8B8F1800C4D4A8 /* TaskItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItem.swift; sourceTree = "<group>"; };
 		DCD438C81F8B913800C4D4A8 /* TaskService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskService.swift; sourceTree = "<group>"; };
 		DCD438CB1F8B915600C4D4A8 /* TaskServiceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskServiceType.swift; sourceTree = "<group>"; };
+		DCD438CE1F8B94E800C4D4A8 /* RealmProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmProvider.swift; sourceTree = "<group>"; };
 		E02DD92121AE7FC83B56AAA7 /* Pods_quick2doo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_quick2doo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -116,6 +118,7 @@
 			children = (
 				DCD438B41F8B811200C4D4A8 /* NibIdentifiable.swift */,
 				DCD438B61F8B81F000C4D4A8 /* BindableType.swift */,
+				DCD438CE1F8B94E800C4D4A8 /* RealmProvider.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				DCD438C61F8B8F1900C4D4A8 /* TaskItem.swift in Sources */,
 				DCD438C31F8B851100C4D4A8 /* ViewModel.swift in Sources */,
 				DCD438B51F8B811200C4D4A8 /* NibIdentifiable.swift in Sources */,
+				DCD438CF1F8B94E800C4D4A8 /* RealmProvider.swift in Sources */,
 				DCD438BB1F8B838D00C4D4A8 /* Scene.swift in Sources */,
 				DCD438CC1F8B915600C4D4A8 /* TaskServiceType.swift in Sources */,
 				DCD438A41F8B784400C4D4A8 /* ViewController.swift in Sources */,
