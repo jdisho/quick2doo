@@ -6,9 +6,14 @@ target 'quick2doo' do
   use_frameworks!
 
   # Pods for quick2doo
-  
-   pod ‘RxSwift’, :git => 'https://github.com/ReactiveX/RxSwift.git', :branch => 'rxswift4.0-swift4.0'
-   pod 'RxCocoa', :git => 'https://github.com/ReactiveX/RxSwift.git', :branch => 'rxswift4.0-swift4.0'
-  pod 'RealmSwift'
+   pod 'RealmSwift’
+   
+   pod 'RxSwift'
+
+   pod 'RxCocoa'
+
+   pod 'RxDataSources'
+   
+   pod 'RxRealm', '0.6'
 
 end

@@ -70,7 +70,7 @@ final class ControlTarget: RxTarget {
     }
 #endif
 
-    @objc func eventHandler(_ sender: Control!) {
+    func eventHandler(_ sender: Control!) {
         if let callback = self.callback, let control = self.control {
             callback(control)
         }

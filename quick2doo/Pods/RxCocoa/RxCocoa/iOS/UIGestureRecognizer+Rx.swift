@@ -37,7 +37,7 @@ final class GestureTarget<Recognizer: UIGestureRecognizer>: RxTarget {
         }
     }
     
-    @objc func eventHandler(_ sender: UIGestureRecognizer) {
+    func eventHandler(_ sender: UIGestureRecognizer!) {
         if let callback = self.callback, let gestureRecognizer = self.gestureRecognizer {
             callback(gestureRecognizer)
         }

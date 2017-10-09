@@ -11,10 +11,10 @@ import RealmSwift
 
 class TaskItem: Object {
     
-    @objc dynamic let uid: Int = 0
-    @objc dynamic let title: String = ""
-    @objc dynamic let added: Date = Date()
-    @objc dynamic let checked: Date? = nil
+    @objc dynamic var uid: Int = 0
+    @objc dynamic var title: String = ""
+    @objc dynamic var added: Date = Date()
+    @objc dynamic var checked: Date? = nil
     
     override class func primaryKey() -> String? {
         return "uid"

@@ -64,8 +64,8 @@ extension RxCocoaError {
 
 // MARK: Error binding policies
 
-func bindingError(_ error: Swift.Error) {
-    let error = "Binding error: \(error)"
+func bindingErrorToInterface(_ error: Swift.Error) {
+    let error = "Binding error to UI: \(error)"
 #if DEBUG
     rxFatalError(error)
 #else

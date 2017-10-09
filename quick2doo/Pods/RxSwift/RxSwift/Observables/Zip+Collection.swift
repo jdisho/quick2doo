@@ -158,7 +158,7 @@ final fileprivate class ZipCollectionType<C: Collection, R> : Producer<R> where 
     init(sources: C, resultSelector: @escaping ResultSelector) {
         self.sources = sources
         self.resultSelector = resultSelector
-        self.count = Int(Int64(self.sources.count))
+        self.count = Int(self.sources.count.toIntMax())
     }
     
     override func run<O : ObserverType>(_ observer: O, cancel: Cancelable) -> (sink: Disposable, subscription: Disposable) where O.E == R {

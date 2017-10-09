@@ -37,7 +37,7 @@ class RxPickerViewSequenceDataSource<S: Sequence>
     typealias Element = S
 
     func pickerView(_ pickerView: UIPickerView, observedEvent: Event<S>) {
-        Binder(self) { dataSource, items in
+        UIBindingObserver(UIElement: self) { dataSource, items in
             dataSource.items = items
             pickerView.reloadAllComponents()
         }

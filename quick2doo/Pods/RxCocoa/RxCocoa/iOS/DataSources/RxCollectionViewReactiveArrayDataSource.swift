@@ -50,7 +50,7 @@ class RxCollectionViewReactiveArrayDataSourceSequenceWrapper<S: Sequence>
     }
     
     func collectionView(_ collectionView: UICollectionView, observedEvent: Event<S>) {
-        Binder(self) { collectionViewDataSource, sectionModels in
+        UIBindingObserver(UIElement: self) { collectionViewDataSource, sectionModels in
             let sections = Array(sectionModels)
             collectionViewDataSource.collectionView(collectionView, observedElements: sections)
         }.on(observedEvent)

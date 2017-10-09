@@ -58,13 +58,23 @@ extension Reactive where Base: UITabBarController {
 /**
  iOS and tvOS
  */
-
-    extension Reactive where Base: UITabBarController {
+extension UITabBarController {
+    
+    /// Factory method that enables subclasses to implement their own `delegate`.
+    ///
+    /// - returns: Instance of delegate proxy that wraps `delegate`.
+    public func createRxDelegateProxy() -> RxTabBarControllerDelegateProxy {
+        return RxTabBarControllerDelegateProxy(parentObject: self)
+    }
+    
+}
+    
+extension Reactive where Base: UITabBarController {
     /// Reactive wrapper for `delegate`.
     ///
     /// For more information take a look at `DelegateProxyType` protocol documentation.
-    public var delegate: DelegateProxy<UITabBarController, UITabBarControllerDelegate> {
-        return RxTabBarControllerDelegateProxy.proxy(for: base)
+    public var delegate: DelegateProxy {
+        return RxTabBarControllerDelegateProxy.proxyForObject(base)
     }
     
     /// Reactive wrapper for `delegate` message `tabBarController:didSelect:`.

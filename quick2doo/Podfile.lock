@@ -1,40 +1,37 @@
 PODS:
+  - Differentiator (2.0.2)
   - Realm (2.10.2):
     - Realm/Headers (= 2.10.2)
   - Realm/Headers (2.10.2)
   - RealmSwift (2.10.2):
     - Realm (= 2.10.2)
-  - RxCocoa (4.0.0-rc.0):
-    - RxSwift (~> 4.0.0-rc.0)
-  - RxSwift (4.0.0-rc.0)
+  - RxCocoa (3.6.1):
+    - RxSwift (~> 3.6)
+  - RxDataSources (2.0.2):
+    - Differentiator (~> 2.0)
+    - RxCocoa (>= 3.6.1)
+    - RxSwift (>= 3.6.1)
+  - RxRealm (0.6.0):
+    - RealmSwift (~> 2.5)
+    - RxSwift (~> 3.2)
+  - RxSwift (3.6.1)
 
 DEPENDENCIES:
   - RealmSwift
-  - RxCocoa (from `https://github.com/ReactiveX/RxSwift.git`, branch `rxswift4.0-swift4.0`)
-  - RxSwift (from `https://github.com/ReactiveX/RxSwift.git`, branch `rxswift4.0-swift4.0`)
-
-EXTERNAL SOURCES:
-  RxCocoa:
-    :branch: rxswift4.0-swift4.0
-    :git: https://github.com/ReactiveX/RxSwift.git
-  RxSwift:
-    :branch: rxswift4.0-swift4.0
-    :git: https://github.com/ReactiveX/RxSwift.git
-
-CHECKOUT OPTIONS:
-  RxCocoa:
-    :commit: 61261f2ee97ace3e08713921dd9406669b9debee
-    :git: https://github.com/ReactiveX/RxSwift.git
-  RxSwift:
-    :commit: 61261f2ee97ace3e08713921dd9406669b9debee
-    :git: https://github.com/ReactiveX/RxSwift.git
+  - RxCocoa
+  - RxDataSources
+  - RxRealm (= 0.6)
+  - RxSwift
 
 SPEC CHECKSUMS:
+  Differentiator: caa9b3957981a2ac8e6b2eac8a676af461caa604
   Realm: 0ef72b837fb67e9f4b098bac771ddd72c7fdbb69
   RealmSwift: 07a9ae0505091eda6b2ee7c190c3786d6e90a7b0
-  RxCocoa: 58841348f4c6e6f6cd244522c16a6b7df5008956
-  RxSwift: f0ff3c78e1f71a7d3506defde0b79c72fe39bac3
+  RxCocoa: 84a08739ab186248c7f31ce4ee92d6f8a947d690
+  RxDataSources: 7f190474a93a206c082c2d74c4cc9c8f7bea4feb
+  RxRealm: 323de579b50b5e0f4a3e087d5925021f976ffaf1
+  RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
 
-PODFILE CHECKSUM: 9ea8830178aa3d8dc323faeeb056fd42e80278eb
+PODFILE CHECKSUM: 17accad1e93e4e5ee52596ea9d9edae594722fac
 
 COCOAPODS: 1.2.1
