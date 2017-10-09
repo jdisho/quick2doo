@@ -13,7 +13,7 @@ import Foundation
      used by the view controller to present a particular scene.
  */
 
-struct ViewModel {
+struct TasksViewModel {
     
     private let sceneCoordinator: SceneCoordinatorType
     

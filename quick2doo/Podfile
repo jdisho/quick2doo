@@ -7,13 +7,9 @@ target 'quick2doo' do
 
   # Pods for quick2doo
    pod 'RealmSwift’
-   
    pod 'RxSwift'
-
    pod 'RxCocoa'
-
    pod 'RxDataSources'
-   
    pod 'RxRealm', '0.6'
-
+   pod 'Action', '~> 3.0'
 end

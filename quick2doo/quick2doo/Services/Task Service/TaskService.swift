@@ -62,6 +62,10 @@ class TaskService: TaskServiceType {
         return result ? .just(task) : .error(TaskServiceError.toggleFailed(task))
     }
     
+    func toggleChecked(for task: TaskItem) -> Observable<Bool> {
+        return Observable.just(task.checked != nil)
+    }
+    
     func tasks() -> Observable<Results<TaskItem>> {
         let realm = realmProvider.defaultRealm
         let tasks = realm.objects(TaskItem.self)

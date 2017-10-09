@@ -6,7 +6,7 @@
 //  Copyright © 2017 Joan Disho. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 /**
      Refers to a screen managed by a view controller.
@@ -15,14 +15,14 @@ import Foundation
 */
 
 enum Scene {
-    case initialView(ViewModel)
+    case taskList(TasksViewModel)
 }
 
 extension Scene {
-    func viewController() -> ViewController {
+    func viewController() -> UIViewController {
         switch self {
-        case .initialView(let viewModel):
-            var vc = ViewController.instantiateFromNib()
+        case .taskList(let viewModel):
+            var vc = TasksViewController.instantiateFromNib()
             vc.bind(to: viewModel)
             return vc
         }
