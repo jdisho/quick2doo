@@ -26,6 +26,7 @@ class TasksViewController: UIViewController, BindableType {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Quick ToDo"
         configureDataSource()
         configureTableView()
     }

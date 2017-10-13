@@ -23,8 +23,9 @@ extension Scene {
         switch self {
         case .taskList(let viewModel):
             var vc = TasksViewController.instantiateFromNib()
+            let navigationController = UINavigationController(rootViewController: vc)
             vc.bind(to: viewModel)
-            return vc
+            return navigationController
         }
     }
 }

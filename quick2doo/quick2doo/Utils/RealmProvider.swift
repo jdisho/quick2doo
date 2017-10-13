@@ -33,11 +33,8 @@ extension RealmProvider {
 
 class LocalRealmProvider: RealmProvider {
     
-    private static let documentsDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-    let localRealmURL = URL(fileURLWithPath: LocalRealmProvider.documentsDirectory.appending("/local.realm"))
-    
     var defaultRealm: Realm {
-        let configuration = Realm.Configuration(fileURL: localRealmURL, inMemoryIdentifier: nil, syncConfiguration: nil, encryptionKey: nil, readOnly: false, schemaVersion: 0, migrationBlock: nil, deleteRealmIfMigrationNeeded: true, shouldCompactOnLaunch: nil, objectTypes: nil)
+        let configuration = Realm.Configuration(fileURL: Constants.Realm.localRealmURL, inMemoryIdentifier: nil, syncConfiguration: nil, encryptionKey: nil, readOnly: false, schemaVersion: 0, migrationBlock: nil, deleteRealmIfMigrationNeeded: true, shouldCompactOnLaunch: nil, objectTypes: nil)
 
         return try! Realm(configuration: configuration)
     }

@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        configureGlobalUISettings()
         let sceneCoordinator = SceneCoordinator(window: window!)
         SceneCoordinator.shared = sceneCoordinator
         let rootScene = Scene.taskList(TasksViewModel(sceneCoordinator: sceneCoordinator))
@@ -24,6 +25,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         TaskService().loadData()
         
         return true
+    }
+    
+    private func configureGlobalUISettings() {
+        UINavigationBar.appearance().tintColor = Constants.Color.textWhite
+        UINavigationBar.appearance().barTintColor = Constants.Color.navbar
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().barStyle = .black
     }
 
 }
