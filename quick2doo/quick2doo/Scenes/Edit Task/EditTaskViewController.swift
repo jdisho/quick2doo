@@ -19,33 +19,46 @@ class EditTaskViewController: UIViewController, BindableType {
     @IBOutlet var taskDescriptionTextView: UITextView!
     
     // MARK: Private
-    private var updateBarButton: UIBarButtonItem!
+    private var okBarButton: UIBarButtonItem!
     private var cancelBarButton: UIBarButtonItem!
     private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Edit ✏️"
         addBarButtonItems()
     }
     
     //MARK: BindableType
     
     func bindViewModel() {
-        viewModel.taskDescription.asObservable().bind(to: taskDescriptionTextView.rx.text).disposed(by: disposeBag)
-        taskDescriptionTextView.rx.text.orEmpty.bind(to: viewModel.taskDescription).disposed(by: disposeBag)
         
-        updateBarButton.rx.action = viewModel.onUpdateButtonAction()
+        viewModel.navBarMessage
+            .bind(to: self.navigationItem.rx.title)
+            .disposed(by: disposeBag)
+        
+        viewModel.taskDescription
+            .asObservable()
+            .bind(to: taskDescriptionTextView.rx.text)
+            .disposed(by: disposeBag)
+        
+        taskDescriptionTextView
+            .rx
+            .text
+            .orEmpty
+            .bind(to: viewModel.taskDescription)
+            .disposed(by: disposeBag)
+    
+        okBarButton.rx.action = viewModel.onOKButtonAction()
         cancelBarButton.rx.action = viewModel.onCancelButtonAction
     }
     
     // MARK: UI
     
     private func addBarButtonItems()  {
-        updateBarButton = UIBarButtonItem(title: "OK", style: .plain, target: self, action: nil)
+        okBarButton = UIBarButtonItem(title: "OK", style: .plain, target: self, action: nil)
         cancelBarButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: nil)
         
-        self.navigationItem.leftBarButtonItem = updateBarButton
+        self.navigationItem.leftBarButtonItem = okBarButton
         self.navigationItem.rightBarButtonItem = cancelBarButton
     }
 

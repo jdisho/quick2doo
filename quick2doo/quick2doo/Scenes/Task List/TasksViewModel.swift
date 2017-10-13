@@ -52,20 +52,15 @@ struct TasksViewModel {
     
     lazy var onCreateTask: CocoaAction = {
         let sceneCoordinator = self.sceneCoordinator
-        let taskService = self.taskService
-        return CocoaAction { _ in
-            taskService
-                .create(task: TaskItem(), title: "")
-                .map { task in 
-                    sceneCoordinator.transition(to: .editTask(EditTaskViewModel(task: task)), type: .modal)
-                }
+        return CocoaAction { 
+            sceneCoordinator.transition(to: .editTask(EditTaskViewModel(mode: .create)), type: .modal)
         }
     }()
     
     lazy var onEditTask: Action<TaskItem, Void> = { 
         let sceneCoordinator = self.sceneCoordinator
         return Action<TaskItem, Void> { task in
-            let editTaskViewModel = EditTaskViewModel(task: task)
+            let editTaskViewModel = EditTaskViewModel(mode: .edit(task))
             return sceneCoordinator.transition(to: .editTask(editTaskViewModel), type: .modal)
         }
     }()
