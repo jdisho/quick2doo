@@ -16,13 +16,13 @@ struct TaskCellViewModel {
     let task: TaskItem
     
     // MARK: Output
-    let title: Observable<String>
+    let title: Observable<String?>
     let isChecked: Observable<Bool>
     
     init(taskService: TaskServiceType = TaskService(), task: TaskItem = TaskItem()) {
         self.taskService = taskService
         self.task = task
-        self.title = Observable.just(task.title)
+        self.title = task.rx.observe(String.self, "title")
         self.isChecked = taskService.toggleChecked(for: task)
     }
     

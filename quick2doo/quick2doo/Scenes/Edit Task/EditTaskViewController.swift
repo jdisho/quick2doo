@@ -26,6 +26,7 @@ class EditTaskViewController: UIViewController, BindableType {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        taskDescriptionTextView.becomeFirstResponder()
         addBarButtonItems()
     }
     

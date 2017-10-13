@@ -27,8 +27,8 @@ class TasksViewController: UIViewController, BindableType {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Quick ToDo 📝"
         setEditing(true, animated: true)
+        configureNavigationBar()
         addBarButtonItems()
         configureDataSource()
         configureTableView()
@@ -70,6 +70,15 @@ class TasksViewController: UIViewController, BindableType {
         tableView.registerCell(type: TaskCell.self)
         tableView.rowHeight = 56
         tableView.sectionHeaderHeight = 48
+    }
+    
+    private func configureNavigationBar() {
+        title = "Tasks 📝"
+        if #available(iOS 11.0, *) {
+            navigationController?.navigationBar.prefersLargeTitles = true
+        } else {
+            // Fallback on earlier versions
+        }
     }
     
     // MARK: DataSource

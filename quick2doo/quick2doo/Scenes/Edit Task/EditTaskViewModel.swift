@@ -14,7 +14,7 @@ struct EditTaskViewModel {
     // MARK: Input
     let sceneCoordinator: SceneCoordinatorType
     let taskService: TaskServiceType
-    let taskDescription = Variable<String>("")
+    let taskDescription = Variable<String?>("")
     let mode = Variable<TaskViewMode>(.create)
     
     // MARK: Output
@@ -30,7 +30,7 @@ struct EditTaskViewModel {
         self.taskService = taskService
         self.mode.value = mode
         
-        isTaskDescriptionEmpty = taskDescription.asObservable().map { $0.isEmpty }
+        isTaskDescriptionEmpty = taskDescription.asObservable().map { ($0?.isEmpty)!}
         isInCreateMode = self.mode.asObservable().map { $0 == .create }
         
        navBarMessage = Observable.combineLatest(isTaskDescriptionEmpty, isInCreateMode).map {
@@ -52,10 +52,10 @@ struct EditTaskViewModel {
     func onOKButtonAction() -> CocoaAction { 
         return CocoaAction {
             guard let existingTask = self.mode.value.existingTask else {  
-                self.taskService.create(task: TaskItem(), title: self.taskDescription.value)
+                self.taskService.create(task: TaskItem(), title: self.taskDescription.value ?? "")
                 return self.sceneCoordinator.pop(animated: true) 
             }
-            self.taskService.update(task: existingTask, title: self.taskDescription.value)
+            self.taskService.update(task: existingTask, title: self.taskDescription.value ?? "")
             return self.sceneCoordinator.pop(animated: true)
         }
     }
@@ -70,7 +70,7 @@ struct EditTaskViewModel {
     // MARK: Helpers
     private func fillInFields(forExistingTask task: TaskItem?) {
         guard let existingTask = task else { return }
-        self.taskDescription.value = existingTask.title
+        existingTask.rx.observe(String.self, "title").bind(to: taskDescription).disposed(by: disposeBag)
     }
     
 }

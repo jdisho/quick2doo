@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        print(Constants.Realm.localRealmURL)
         configureGlobalUISettings()
         let sceneCoordinator = SceneCoordinator(window: window!)
         SceneCoordinator.shared = sceneCoordinator
@@ -29,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func configureGlobalUISettings() {
         UINavigationBar.appearance().tintColor = Constants.Color.textWhite
-        UINavigationBar.appearance().barTintColor = Constants.Color.navbar
+        UINavigationBar.appearance().barTintColor = Constants.Color.green
         UINavigationBar.appearance().isTranslucent = false
         UINavigationBar.appearance().barStyle = .black
     }
