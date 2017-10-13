@@ -26,7 +26,8 @@ class TasksViewController: UIViewController, BindableType {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Quick ToDo"
+        title = "Quick ToDo 📝"
+        addBarButtonItems()
         configureDataSource()
         configureTableView()
     }
@@ -41,6 +42,11 @@ class TasksViewController: UIViewController, BindableType {
     }
     
     // MARK: UI
+    
+    private func addBarButtonItems()  {
+        let addNewNoteBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
+        self.navigationItem.rightBarButtonItem = addNewNoteBarButton
+    }
     
     private func configureTableView() {
         tableView.registerCell(type: TaskCell.self)
