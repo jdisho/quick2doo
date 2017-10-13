@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0EAC0AF82B2E37637EF4F542 /* Pods_quick2doo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E02DD92121AE7FC83B56AAA7 /* Pods_quick2doo.framework */; };
+		DCAE1F131F90036600A53E4C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAE1F121F90036600A53E4C /* ViewController.swift */; };
 		DCD438A21F8B784400C4D4A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD438A11F8B784400C4D4A8 /* AppDelegate.swift */; };
 		DCD438A71F8B784400C4D4A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCD438A51F8B784400C4D4A8 /* Main.storyboard */; };
 		DCD438A91F8B784400C4D4A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCD438A81F8B784400C4D4A8 /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		04D4E080620C3C1DA12CFA10 /* Pods-quick2doo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quick2doo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-quick2doo/Pods-quick2doo.debug.xcconfig"; sourceTree = "<group>"; };
 		480BF7E7CD32E25BEAEC773D /* Pods-quick2doo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quick2doo.release.xcconfig"; path = "Pods/Target Support Files/Pods-quick2doo/Pods-quick2doo.release.xcconfig"; sourceTree = "<group>"; };
+		DCAE1F121F90036600A53E4C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DCD4389E1F8B784400C4D4A8 /* quick2doo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = quick2doo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCD438A11F8B784400C4D4A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCD438A61F8B784400C4D4A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				DCD438C41F8B8EFB00C4D4A8 /* Models */,
 				DCD438B31F8B80FA00C4D4A8 /* Utils */,
 				DCD438A81F8B784400C4D4A8 /* Assets.xcassets */,
+				DCAE1F121F90036600A53E4C /* ViewController.swift */,
 				DCD438A51F8B784400C4D4A8 /* Main.storyboard */,
 				DCD438AA1F8B784400C4D4A8 /* LaunchScreen.storyboard */,
 				DCD438AD1F8B784400C4D4A8 /* Info.plist */,
@@ -336,6 +339,7 @@
 				DCD438A21F8B784400C4D4A8 /* AppDelegate.swift in Sources */,
 				DCD438BF1F8B83B300C4D4A8 /* SceneCoordinator.swift in Sources */,
 				DCD438BD1F8B83A500C4D4A8 /* SceneCoordinatorType.swift in Sources */,
+				DCAE1F131F90036600A53E4C /* ViewController.swift in Sources */,
 				DCD438C11F8B83C200C4D4A8 /* SceneTransitionType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -475,7 +479,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YLLL7FKAFL;
+				DEVELOPMENT_TEAM = W44QDC3NZM;
 				INFOPLIST_FILE = quick2doo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -492,7 +496,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YLLL7FKAFL;
+				DEVELOPMENT_TEAM = W44QDC3NZM;
 				INFOPLIST_FILE = quick2doo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -22,7 +22,6 @@ struct TaskCellViewModel {
     init(taskService: TaskServiceType = TaskService(), task: TaskItem = TaskItem()) {
         self.taskService = taskService
         self.task = task
-        
         self.title = Observable.just(task.title)
         self.isChecked = taskService.toggleChecked(for: task)
     }
@@ -31,7 +30,7 @@ struct TaskCellViewModel {
         let task = self.task
         let taskService = self.taskService
         return CocoaAction {
-            taskService.toggle(task: task).map{ _ in () } 
+            return taskService.toggle(task: task).map{ _ in () } 
         }
     }()
 }

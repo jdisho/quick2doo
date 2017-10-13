@@ -23,6 +23,7 @@ class TaskCell: UITableViewCell, BindableType {
     private let disposeBag = DisposeBag()
   
     // MARK: BindableType
+    
     func bindViewModel() {
         viewModel.title.bind(to: titleLabel.rx.text).disposed(by: disposeBag)
         viewModel.isChecked.map { $0 ? #imageLiteral(resourceName: "checked") : #imageLiteral(resourceName: "not_checked") }.bind(to: toggleButton.rx.image()).disposed(by: disposeBag)

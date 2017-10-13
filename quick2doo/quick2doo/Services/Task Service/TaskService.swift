@@ -63,7 +63,7 @@ class TaskService: TaskServiceType {
     }
     
     func toggleChecked(for task: TaskItem) -> Observable<Bool> {
-        return Observable.just(task.checked != nil)
+        return task.rx.observe(Date.self, "checked").map { $0 != nil }
     }
     
     func tasks() -> Observable<Results<TaskItem>> {
@@ -71,4 +71,19 @@ class TaskService: TaskServiceType {
         let tasks = realm.objects(TaskItem.self)
         return Observable.collection(from: tasks)
     }
+    
+    // MARK: Load dummy data
+    func loadData() {
+        let realm = realmProvider.defaultRealm
+        if realm.objects(TaskItem.self).isEmpty {
+            ["Chapter 5: Filtering operators",
+             "Chapter 4: Observables and Subjects in practice",
+             "Chapter 3: Subjects",
+             "Chapter 2: Observables",
+             "Chapter 1: Hello, RxSwift"].forEach {
+                self.create(task: TaskItem(), title: $0)
+            }
+        }
+    }
+    
 }
