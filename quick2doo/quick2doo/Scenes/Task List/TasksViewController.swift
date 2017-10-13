@@ -22,6 +22,7 @@ class TasksViewController: UIViewController, BindableType {
     // MARK: Private
     private let disposeBag = DisposeBag()
     private var dataSource: RxTableViewSectionedAnimatedDataSource<TaskSection>!
+    private var addNewNoteBarButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,12 +47,14 @@ class TasksViewController: UIViewController, BindableType {
             }
             .subscribe(viewModel.onEditTask.inputs)
             .disposed(by: disposeBag)
+        
+        addNewNoteBarButton.rx.action = viewModel.onCreateTask
     }
     
     // MARK: UI
     
     private func addBarButtonItems()  {
-        let addNewNoteBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
+        addNewNoteBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
         self.navigationItem.rightBarButtonItem = addNewNoteBarButton
     }
     

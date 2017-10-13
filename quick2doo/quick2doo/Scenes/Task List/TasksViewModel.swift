@@ -50,6 +50,18 @@ struct TasksViewModel {
     
     // MARK: Actions
     
+    lazy var onCreateTask: CocoaAction = {
+        let sceneCoordinator = self.sceneCoordinator
+        let taskService = self.taskService
+        return CocoaAction { _ in
+            taskService
+                .create(task: TaskItem(), title: "")
+                .map { task in 
+                    sceneCoordinator.transition(to: .editTask(EditTaskViewModel(task: task)), type: .modal)
+                }
+        }
+    }()
+    
     lazy var onEditTask: Action<TaskItem, Void> = { 
         let sceneCoordinator = self.sceneCoordinator
         return Action<TaskItem, Void> { task in
