@@ -41,12 +41,12 @@ class TaskService: TaskServiceType {
     }
     
     @discardableResult 
-    func delete(task: TaskItem) -> Observable<TaskItem> {
+    func delete(task: TaskItem) -> Observable<Void> {
         let result = realmProvider.performRealmOperation("deleting task") { realm in
             realm.delete(task)
         }
         
-        return result ? .just(task) : .error(TaskServiceError.deletionFailed(task))
+        return result ? .empty() : .error(TaskServiceError.deletionFailed(task))
     }
     
     @discardableResult 

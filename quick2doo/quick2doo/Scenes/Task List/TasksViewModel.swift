@@ -65,6 +65,13 @@ struct TasksViewModel {
         }
     }()
     
+    lazy var onDeleteTask: Action<TaskItem, Void> = { 
+        let taskService = self.taskService
+        return Action<TaskItem, Void> { task in
+             taskService.delete(task: task)
+        }
+    }()
+    
     // MARK: Create ViewModel
     
     func createTaskCellViewModel(forTask task: TaskItem) -> TaskCellViewModel {

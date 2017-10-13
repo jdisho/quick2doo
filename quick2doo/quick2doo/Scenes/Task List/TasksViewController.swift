@@ -28,6 +28,7 @@ class TasksViewController: UIViewController, BindableType {
         super.viewDidLoad()
         
         title = "Quick ToDo 📝"
+        setEditing(true, animated: true)
         addBarButtonItems()
         configureDataSource()
         configureTableView()
@@ -46,6 +47,13 @@ class TasksViewController: UIViewController, BindableType {
                 try! self.dataSource.model(at: indexPath) as! TaskItem
             }
             .subscribe(viewModel.onEditTask.inputs)
+            .disposed(by: disposeBag)
+        
+        tableView.rx.itemDeleted
+            .map { [unowned self] indexPath in
+                try! self.dataSource.model(at: indexPath) as! TaskItem
+            }
+            .subscribe(viewModel.onDeleteTask.inputs)
             .disposed(by: disposeBag)
         
         addNewNoteBarButton.rx.action = viewModel.onCreateTask
@@ -79,6 +87,8 @@ class TasksViewController: UIViewController, BindableType {
             cell.bind(to: cellViewModel)
             return cell
         }
+        
+        dataSource.canEditRowAtIndexPath = { _ in true }
     }
     
 }
