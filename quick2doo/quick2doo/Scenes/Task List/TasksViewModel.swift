@@ -9,6 +9,7 @@
 import RxSwift
 import RxCocoa
 import RxDataSources
+import Action
 
 /** 
      View model: Defines the business logic and data 
@@ -28,25 +29,39 @@ struct TasksViewModel {
     private let sceneCoordinator: SceneCoordinatorType
     private let taskService: TaskServiceType
     
+    // MARK: Output
+    let sections: Observable<[TaskSection]>
+    
     init(sceneCoordinator: SceneCoordinatorType = SceneCoordinator.shared, taskService: TaskServiceType = TaskService()) {
         self.sceneCoordinator = sceneCoordinator
         self.taskService = taskService
+        
+        sections = taskService.tasks()
+            .map { results -> [TaskSection] in
+                let dueTasks = results.filter("checked == nil").sorted(byKeyPath: "added", ascending: false)
+                let doneTasks = results.filter("checked != nil").sorted(byKeyPath: "added", ascending: false)
+                return [
+                    TaskSection(model: TaskType.due.rawValue, items: dueTasks.toArray()),
+                    TaskSection(model: TaskType.done.rawValue, items: doneTasks.toArray())
+                ]
+            }
+        
     }
     
-    var sections: Observable<[TaskSection]> {
-        return taskService.tasks()
-        .map { results in
-            let dueTasks = results.filter("checked == nil").sorted(byKeyPath: "added", ascending: false)
-            let doneTasks = results.filter("checked != nil").sorted(byKeyPath: "added", ascending: false)
-            return [
-                TaskSection(model: TaskType.due.rawValue, items: dueTasks.toArray()),
-                TaskSection(model: TaskType.done.rawValue, items: doneTasks.toArray())
-            ]
+    // MARK: Actions
+    
+    lazy var onEditTask: Action<TaskItem, Void> = { 
+        let sceneCoordinator = self.sceneCoordinator
+        return Action<TaskItem, Void> { task in
+            let editTaskViewModel = EditTaskViewModel(task: task)
+            return sceneCoordinator.transition(to: .editTask(editTaskViewModel), type: .modal)
         }
-    }
+    }()
     
     // MARK: Create ViewModel
+    
     func createTaskCellViewModel(forTask task: TaskItem) -> TaskCellViewModel {
         return TaskCellViewModel(taskService: taskService, task: task)
     }
+    
 }

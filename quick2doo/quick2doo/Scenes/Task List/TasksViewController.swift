@@ -39,6 +39,13 @@ class TasksViewController: UIViewController, BindableType {
             .sections
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
+        
+        tableView.rx.itemSelected
+            .map { [unowned self] indexPath in
+                try! self.dataSource.model(at: indexPath) as! TaskItem
+            }
+            .subscribe(viewModel.onEditTask.inputs)
+            .disposed(by: disposeBag)
     }
     
     // MARK: UI

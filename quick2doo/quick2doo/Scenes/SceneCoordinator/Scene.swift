@@ -16,6 +16,7 @@ import UIKit
 
 enum Scene {
     case taskList(TasksViewModel)
+    case editTask(EditTaskViewModel)
 }
 
 extension Scene {
@@ -23,6 +24,11 @@ extension Scene {
         switch self {
         case .taskList(let viewModel):
             var vc = TasksViewController.instantiateFromNib()
+            let navigationController = UINavigationController(rootViewController: vc)
+            vc.bind(to: viewModel)
+            return navigationController
+        case .editTask(let viewModel):
+            var vc = EditTaskViewController.instantiateFromNib()
             let navigationController = UINavigationController(rootViewController: vc)
             vc.bind(to: viewModel)
             return navigationController
