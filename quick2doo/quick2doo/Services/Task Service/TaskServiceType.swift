@@ -23,5 +23,7 @@ protocol TaskServiceType {
     @discardableResult func delete(task: TaskItem) -> Observable<Void>
     @discardableResult func toggle(task: TaskItem) -> Observable<TaskItem>
     @discardableResult func toggleChecked(for task: TaskItem) -> Observable<Bool>
+    @discardableResult func search(withString string: Variable<String?>) -> Observable<[TaskItem]>
     func tasks() -> Observable<Results<TaskItem>>
+    func tasks() -> Results<TaskItem>
 }

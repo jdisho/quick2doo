@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0EAC0AF82B2E37637EF4F542 /* Pods_quick2doo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E02DD92121AE7FC83B56AAA7 /* Pods_quick2doo.framework */; };
 		DC2F35941F914D48009E2944 /* TaskViewMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2F35931F914D48009E2944 /* TaskViewMode.swift */; };
+		DC8D5A6D1F927B4700EC1EA0 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D5A6B1F927B4700EC1EA0 /* SearchResultsViewController.swift */; };
+		DC8D5A6E1F927B4700EC1EA0 /* SearchResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC8D5A6C1F927B4700EC1EA0 /* SearchResultsViewController.xib */; };
+		DC8D5A701F927B6D00EC1EA0 /* SearchResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8D5A6F1F927B6D00EC1EA0 /* SearchResultsViewModel.swift */; };
 		DCA657391F90B3D700C53EBE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA657381F90B3D700C53EBE /* Constants.swift */; };
 		DCAE1F131F90036600A53E4C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAE1F121F90036600A53E4C /* ViewController.swift */; };
 		DCD438A21F8B784400C4D4A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD438A11F8B784400C4D4A8 /* AppDelegate.swift */; };
@@ -31,6 +34,7 @@
 		DCDAA82F1F8BA64C00C487D1 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDAA82D1F8BA64C00C487D1 /* TaskCell.swift */; };
 		DCDAA8301F8BA64C00C487D1 /* TaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCDAA82E1F8BA64C00C487D1 /* TaskCell.xib */; };
 		DCDAA8321F8BA65A00C487D1 /* TaskCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDAA8311F8BA65A00C487D1 /* TaskCellViewModel.swift */; };
+		DCEC670D1F935BC40097A4E5 /* ObservableType+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEC670C1F935BC40097A4E5 /* ObservableType+Extras.swift */; };
 		DCFADE9C1F910594001AEF3A /* EditTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFADE9A1F910594001AEF3A /* EditTaskViewController.swift */; };
 		DCFADE9D1F910594001AEF3A /* EditTaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCFADE9B1F910594001AEF3A /* EditTaskViewController.xib */; };
 		DCFADE9F1F9105D6001AEF3A /* EditTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFADE9E1F9105D6001AEF3A /* EditTaskViewModel.swift */; };
@@ -40,6 +44,9 @@
 		04D4E080620C3C1DA12CFA10 /* Pods-quick2doo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quick2doo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-quick2doo/Pods-quick2doo.debug.xcconfig"; sourceTree = "<group>"; };
 		480BF7E7CD32E25BEAEC773D /* Pods-quick2doo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-quick2doo.release.xcconfig"; path = "Pods/Target Support Files/Pods-quick2doo/Pods-quick2doo.release.xcconfig"; sourceTree = "<group>"; };
 		DC2F35931F914D48009E2944 /* TaskViewMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewMode.swift; sourceTree = "<group>"; };
+		DC8D5A6B1F927B4700EC1EA0 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
+		DC8D5A6C1F927B4700EC1EA0 /* SearchResultsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultsViewController.xib; sourceTree = "<group>"; };
+		DC8D5A6F1F927B6D00EC1EA0 /* SearchResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewModel.swift; sourceTree = "<group>"; };
 		DCA657381F90B3D700C53EBE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DCAE1F121F90036600A53E4C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DCD4389E1F8B784400C4D4A8 /* quick2doo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = quick2doo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +71,7 @@
 		DCDAA82D1F8BA64C00C487D1 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		DCDAA82E1F8BA64C00C487D1 /* TaskCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskCell.xib; sourceTree = "<group>"; };
 		DCDAA8311F8BA65A00C487D1 /* TaskCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCellViewModel.swift; sourceTree = "<group>"; };
+		DCEC670C1F935BC40097A4E5 /* ObservableType+Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObservableType+Extras.swift"; sourceTree = "<group>"; };
 		DCFADE9A1F910594001AEF3A /* EditTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskViewController.swift; sourceTree = "<group>"; };
 		DCFADE9B1F910594001AEF3A /* EditTaskViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditTaskViewController.xib; sourceTree = "<group>"; };
 		DCFADE9E1F9105D6001AEF3A /* EditTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskViewModel.swift; sourceTree = "<group>"; };
@@ -97,6 +105,16 @@
 				E02DD92121AE7FC83B56AAA7 /* Pods_quick2doo.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DC8D5A6A1F927AF300EC1EA0 /* Search Result */ = {
+			isa = PBXGroup;
+			children = (
+				DC8D5A6B1F927B4700EC1EA0 /* SearchResultsViewController.swift */,
+				DC8D5A6F1F927B6D00EC1EA0 /* SearchResultsViewModel.swift */,
+				DC8D5A6C1F927B4700EC1EA0 /* SearchResultsViewController.xib */,
+			);
+			path = "Search Result";
 			sourceTree = "<group>";
 		};
 		DCD438951F8B784400C4D4A8 = {
@@ -137,8 +155,7 @@
 		DCD438B31F8B80FA00C4D4A8 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				DCD438B41F8B811200C4D4A8 /* NibIdentifiable.swift */,
-				DCD438B61F8B81F000C4D4A8 /* BindableType.swift */,
+				DCEC670B1F935BA30097A4E5 /* Extentions */,
 				DCD438CE1F8B94E800C4D4A8 /* RealmProvider.swift */,
 				DCA657381F90B3D700C53EBE /* Constants.swift */,
 				DC2F35931F914D48009E2944 /* TaskViewMode.swift */,
@@ -152,6 +169,7 @@
 				DCD438B91F8B836F00C4D4A8 /* SceneCoordinator */,
 				DCFADE991F91055C001AEF3A /* Edit Task */,
 				DCDAA8271F8BA53800C487D1 /* Task List */,
+				DC8D5A6A1F927AF300EC1EA0 /* Search Result */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -211,6 +229,16 @@
 				DCDAA82E1F8BA64C00C487D1 /* TaskCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		DCEC670B1F935BA30097A4E5 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				DCD438B41F8B811200C4D4A8 /* NibIdentifiable.swift */,
+				DCD438B61F8B81F000C4D4A8 /* BindableType.swift */,
+				DCEC670C1F935BC40097A4E5 /* ObservableType+Extras.swift */,
+			);
+			path = Extentions;
 			sourceTree = "<group>";
 		};
 		DCFADE991F91055C001AEF3A /* Edit Task */ = {
@@ -289,6 +317,7 @@
 				DCDAA8301F8BA64C00C487D1 /* TaskCell.xib in Resources */,
 				DCDAA82B1F8BA56600C487D1 /* TasksViewController.xib in Resources */,
 				DCFADE9D1F910594001AEF3A /* EditTaskViewController.xib in Resources */,
+				DC8D5A6E1F927B4700EC1EA0 /* SearchResultsViewController.xib in Resources */,
 				DCD438A91F8B784400C4D4A8 /* Assets.xcassets in Resources */,
 				DCD438A71F8B784400C4D4A8 /* Main.storyboard in Resources */,
 			);
@@ -350,10 +379,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCD438C91F8B913800C4D4A8 /* TaskService.swift in Sources */,
+				DC8D5A701F927B6D00EC1EA0 /* SearchResultsViewModel.swift in Sources */,
 				DCFADE9C1F910594001AEF3A /* EditTaskViewController.swift in Sources */,
 				DCA657391F90B3D700C53EBE /* Constants.swift in Sources */,
 				DCD438B71F8B81F000C4D4A8 /* BindableType.swift in Sources */,
 				DC2F35941F914D48009E2944 /* TaskViewMode.swift in Sources */,
+				DCEC670D1F935BC40097A4E5 /* ObservableType+Extras.swift in Sources */,
+				DC8D5A6D1F927B4700EC1EA0 /* SearchResultsViewController.swift in Sources */,
 				DCD438C61F8B8F1900C4D4A8 /* TaskItem.swift in Sources */,
 				DCDAA82A1F8BA56500C487D1 /* TasksViewController.swift in Sources */,
 				DCD438C31F8B851100C4D4A8 /* TasksViewModel.swift in Sources */,

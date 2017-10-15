@@ -28,6 +28,8 @@ struct TasksViewModel {
     // MARK: Input
     private let sceneCoordinator: SceneCoordinatorType
     private let taskService: TaskServiceType
+    private let disposableBag = DisposeBag()
+    let searchString = Variable<String?>("")
     
     // MARK: Output
     let sections: Observable<[TaskSection]>
@@ -76,6 +78,10 @@ struct TasksViewModel {
     
     func createTaskCellViewModel(forTask task: TaskItem) -> TaskCellViewModel {
         return TaskCellViewModel(taskService: taskService, task: task)
+    }
+    
+    func createSearchResultsViewModel() -> SearchResultsViewModel {
+        return SearchResultsViewModel(searchString: searchString)
     }
     
 }

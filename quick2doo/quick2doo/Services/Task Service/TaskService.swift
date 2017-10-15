@@ -62,8 +62,21 @@ class TaskService: TaskServiceType {
         return result ? .just(task) : .error(TaskServiceError.toggleFailed(task))
     }
     
+    @discardableResult
     func toggleChecked(for task: TaskItem) -> Observable<Bool> {
         return task.rx.observe(Date.self, "checked").map { $0 != nil }
+    }
+    
+    @discardableResult
+    func search(withString string: Variable<String?>) -> Observable<[TaskItem]> {
+        return string
+            .asObservable()
+            .debounce(0.3, scheduler: MainScheduler.instance)
+            .distinctUntilChanged { v1, v2 in v1.value == v2.value }
+            .skipNil()
+            .map { query in 
+                self.tasks().filter { $0.title.lowercased().contains(query.lowercased()) }
+            }
     }
     
     func tasks() -> Observable<Results<TaskItem>> {
@@ -71,6 +84,12 @@ class TaskService: TaskServiceType {
         let tasks = realm.objects(TaskItem.self)
         return Observable.collection(from: tasks)
     }
+    
+    func tasks() -> Results<TaskItem> { 
+        let realm = realmProvider.defaultRealm
+        return realm.objects(TaskItem.self)
+    } 
+    
     
     // MARK: Load dummy data
     func loadData() {

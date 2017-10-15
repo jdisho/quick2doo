@@ -18,6 +18,8 @@ class TasksViewController: UIViewController, BindableType {
     
     // MARK: IBOutlets
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var searchBar: UISearchBar!
+    @IBOutlet var searchResultsContainerView: UIView!
     
     // MARK: Private
     private let disposeBag = DisposeBag()
@@ -32,11 +34,26 @@ class TasksViewController: UIViewController, BindableType {
         addBarButtonItems()
         configureDataSource()
         configureTableView()
+        addSearchResultsView()
     }
 
     // MARK: BindableType
     
     func bindViewModel() {
+        
+        searchBar.rx.text
+            .shareReplay(1)
+            .bind(to: viewModel.searchString)
+            .disposed(by: disposeBag)
+        
+        viewModel.searchString
+            .asObservable()
+            .skipNil()
+            .map { $0.count > 0 }
+            .negate
+            .bind(to: searchResultsContainerView.rx.isHidden)
+            .disposed(by: disposeBag)
+        
         viewModel
             .sections
             .bind(to: tableView.rx.items(dataSource: dataSource))
@@ -61,6 +78,10 @@ class TasksViewController: UIViewController, BindableType {
     
     // MARK: UI
     
+    private func configureNavigationBar() {
+        title = "Tasks 📝"
+    }
+    
     private func addBarButtonItems()  {
         addNewNoteBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
         self.navigationItem.rightBarButtonItem = addNewNoteBarButton
@@ -72,14 +93,13 @@ class TasksViewController: UIViewController, BindableType {
         tableView.sectionHeaderHeight = 48
     }
     
-    private func configureNavigationBar() {
-        title = "Tasks 📝"
-        if #available(iOS 11.0, *) {
-            navigationController?.navigationBar.prefersLargeTitles = true
-        } else {
-            // Fallback on earlier versions
-        }
+    private func addSearchResultsView() {
+        var searchResultsVC = SearchResultsViewController.instantiateFromNib()
+        searchResultsVC.bind(to: viewModel.createSearchResultsViewModel())
+        searchResultsContainerView.addSubview(searchResultsVC.view)
     }
+    
+    
     
     // MARK: DataSource
     
