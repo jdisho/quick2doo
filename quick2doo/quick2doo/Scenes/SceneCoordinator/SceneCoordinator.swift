@@ -33,6 +33,7 @@ class SceneCoordinator: SceneCoordinatorType {
         return viewController
     }
     
+    @discardableResult
     func transition(to scene: Scene, type: SceneTransitionType) -> Observable<Void> {
         let subject = PublishSubject<Void>()
         let viewController = scene.viewController()
@@ -68,6 +69,7 @@ class SceneCoordinator: SceneCoordinatorType {
             .take(1)
     }
     
+    @discardableResult
     func pop(animated: Bool) -> Observable<Void> {
         let subject = PublishSubject<Void>()
         if let presenter = currentViewController.presentingViewController {

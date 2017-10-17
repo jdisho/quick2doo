@@ -19,7 +19,6 @@ class TasksViewController: UIViewController, BindableType {
     // MARK: IBOutlets
     @IBOutlet var tableView: UITableView!
     @IBOutlet var searchBar: UISearchBar!
-    @IBOutlet var searchResultsContainerView: UIView!
     
     // MARK: Private
     private let disposeBag = DisposeBag()
@@ -34,7 +33,6 @@ class TasksViewController: UIViewController, BindableType {
         addBarButtonItems()
         configureDataSource()
         configureTableView()
-        addSearchResultsView()
     }
 
     // MARK: BindableType
@@ -44,14 +42,6 @@ class TasksViewController: UIViewController, BindableType {
         searchBar.rx.text
             .shareReplay(1)
             .bind(to: viewModel.searchString)
-            .disposed(by: disposeBag)
-        
-        viewModel.searchString
-            .asObservable()
-            .skipNil()
-            .map { $0.count > 0 }
-            .negate
-            .bind(to: searchResultsContainerView.rx.isHidden)
             .disposed(by: disposeBag)
         
         viewModel
@@ -92,14 +82,6 @@ class TasksViewController: UIViewController, BindableType {
         tableView.rowHeight = 56
         tableView.sectionHeaderHeight = 48
     }
-    
-    private func addSearchResultsView() {
-        var searchResultsVC = SearchResultsViewController.instantiateFromNib()
-        searchResultsVC.bind(to: viewModel.createSearchResultsViewModel())
-        searchResultsContainerView.addSubview(searchResultsVC.view)
-    }
-    
-    
     
     // MARK: DataSource
     

@@ -79,7 +79,7 @@ class TaskService: TaskServiceType {
             }
     }
     
-    func tasks() -> Observable<Results<TaskItem>> {
+    func tasksAsObservable() -> Observable<Results<TaskItem>> {
         let realm = realmProvider.defaultRealm
         let tasks = realm.objects(TaskItem.self)
         return Observable.collection(from: tasks)

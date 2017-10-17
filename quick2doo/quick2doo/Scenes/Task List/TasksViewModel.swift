@@ -33,21 +33,27 @@ struct TasksViewModel {
     
     // MARK: Output
     let sections: Observable<[TaskSection]>
+    let searchResults: Observable<[TaskItem]>
     
     init(sceneCoordinator: SceneCoordinatorType = SceneCoordinator.shared, taskService: TaskServiceType = TaskService()) {
         self.sceneCoordinator = sceneCoordinator
         self.taskService = taskService
+        searchResults = taskService.search(withString: searchString)
         
-        sections = taskService.tasks()
+        let tasks = Observable.combineLatest(searchString.asObservable().skipNil(), taskService.tasksAsObservable(), searchResults).map { (args) -> [TaskItem] in 
+            let (query, tasks, searchResults) = args
+            return query.isEmpty ? tasks.toArray() : searchResults
+        }
+        
+        sections = tasks
             .map { results -> [TaskSection] in
-                let dueTasks = results.filter("checked == nil").sorted(byKeyPath: "added", ascending: false)
-                let doneTasks = results.filter("checked != nil").sorted(byKeyPath: "added", ascending: false)
+                let dueTasks = results.filter { $0.checked == nil }.sorted(by: { $0.0.added < $0.1.added })
+                let doneTasks = results.filter { $0.checked != nil }.sorted(by: { $0.0.added < $0.1.added })
                 return [
-                    TaskSection(model: TaskType.due.rawValue, items: dueTasks.toArray()),
-                    TaskSection(model: TaskType.done.rawValue, items: doneTasks.toArray())
+                    TaskSection(model: TaskType.due.rawValue, items: dueTasks),
+                    TaskSection(model: TaskType.done.rawValue, items: doneTasks)
                 ]
             }
-        
     }
     
     // MARK: Actions
@@ -78,10 +84,6 @@ struct TasksViewModel {
     
     func createTaskCellViewModel(forTask task: TaskItem) -> TaskCellViewModel {
         return TaskCellViewModel(taskService: taskService, task: task)
-    }
-    
-    func createSearchResultsViewModel() -> SearchResultsViewModel {
-        return SearchResultsViewModel(searchString: searchString)
     }
     
 }
